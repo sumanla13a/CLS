@@ -1,0 +1,10 @@
+form.form-inline(method='POST', action='')
+    .form-group
+        label.sr-only(for="usernameInput") Username
+        input.form-control(type="text", placeholder="username", required=true)
+    span &nbsp;
+    .form-group
+        label.sr-only(for="password") Password
+        input.form-control(type="password", placeholder="password", required=true)
+    span &nbsp;
+    button.btn.btn-primary(type="submit", value="Login") Login

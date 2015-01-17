@@ -55,6 +55,8 @@ build
 .grunt
 
 node_modules
+bower_components
+bower.json
 
 .metadata
 

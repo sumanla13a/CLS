@@ -1,3 +1,4 @@
+var http = require('http');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -21,9 +22,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
-app.use('/users', users);
+app.set('port', 4500);
+var router = express.Router();
+app.use('/', router); //initializing routes that all routes begin with '/'
+require('./routes')(router);//passing router to routes
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -32,6 +34,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+//models
 // error handlers
 
 // development error handler
@@ -54,6 +57,11 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
+});
+
+var server = http.createServer(app);
+server.listen(app.get('port'), function(){ //listen keeps on listening
+    console.log('Donut running on port : ' + app.get('port'));
 });
 
 

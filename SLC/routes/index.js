@@ -1,9 +1,6 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
 
-/* GET home page. */
-router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+module.exports = function(router) {
+	console.log('here');
+	require('./users')(router);
+}
