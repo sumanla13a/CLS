@@ -9,10 +9,11 @@ var db = mongoose.connection;
 db.on('error', console.error);
 
 module.exports/*var a */= {
-	student: require('./student')(mongoose)
+	student: require('./student')(mongoose),
+	quizes: require('./quizes')(mongoose)
 };
 
-
+//-----------------------------TestCodes--------------------------
 if(require.main === module) {
 	var newStudent = new a.student.student;
 	newStudent.name = {

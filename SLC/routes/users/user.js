@@ -1,6 +1,7 @@
 'use strict';
 
 var bcrypt = require('bcrypt');
+var util = require('util');
 
 var student = require('../../models').student.student;
 
