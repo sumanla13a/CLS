@@ -1,4 +1,7 @@
 'use strict';
+
+var bcrypt = require('bcrypt');
+
 var student = require('../../models').student.student;
 
 var user = {
@@ -7,7 +10,6 @@ var user = {
 	},
 
 	checkIfUserExists: function(req, res, next) {
-		console.log('here');
 		var newStudent = new student;
 		student.findOne({email: req.registerRequest.email}, checkUserExistenceCb);
 		function checkUserExistenceCb (err, result) {
@@ -19,25 +21,76 @@ var user = {
 		}
 	},
 
+	checkIfUserNameExists: function(req, res, next) {
+		student.findOne({email: req.body.username}, usernameExistenceCb);
+		function usernameExistenceCb(err, result) {
+			var error = '';
+			if(result && result.username) {
+				res.json({
+					exists: 1
+				});
+			} else {
+				res.json({
+					exists: 0
+				});
+			}
+		}
+	},
+
 	register: function(req, res, next) {
-		console.log(req.registerRequest);
-		
 		var newStudent = new student;
 		var reqData = req.registerRequest;
 		newStudent.name = reqData.name;
 		newStudent.username = reqData.username;
 		newStudent.email = reqData.email;
 		newStudent.password = reqData.password;
-
-		newStudent.save(savedNewStudent);
+		encrypt(newStudent.password, encryptedData);
+		function encryptedData(err, hash) {
+			newStudent.password = hash;
+			newStudent.save(savedNewStudent);
+		}
 		function savedNewStudent(err, result) {
-			console.log(result);
-			console.log(err);
 			res.json({
 				result:1
-			})
+			});
+		}
+	},
+
+	login: function(req, res, next) {
+		var loginRequest = req.loginRequest;
+
+		student.findOne({email: req.loginRequest.username}, loginCheck);
+		function loginCheck(err, documents) {
+			bcrypt.compare(loginRequest.password, documents.password, checkAuthentication);
+			function checkAuthentication(error, result) {
+				if(error || !result){
+					res.json({
+						status: 0
+					});
+				} else {
+					delete documents.password;
+					req.session.user = documents;
+					res.json({
+						status: 1
+					});
+				}
+			}
+		}
+	},
+
+	logout: function(req, res, next) {
+		if(req.session.user) {
+			req.session.destroy();
+			//redirect to somewhere
 		}
 	}
 };
 
+
+function encrypt(password, callback) {
+	bcrypt.genSalt(10, function(err, salt) { //generating salt
+		if(err) return cb(err);
+		bcrypt.hash(password, salt, callback); //calling callback here sends the error and hash that it generates to the function declaration.
+	})
+}
 module.exports = user;

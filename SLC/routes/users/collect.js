@@ -11,7 +11,18 @@ var collect = {
 			email: req.body.email,
 			password: req.body.password
 		};
+		//todo: add validation here
 		return next();
+	},
+
+	login: function(req, res, next) {
+		req.loginRequest = {
+			username: req.body.username, //can be email and username both
+			password: req.body.password
+		};
+		//todo: add validation here
+		return next();
+
 	}
 };
 
