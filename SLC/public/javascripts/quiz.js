@@ -1,12 +1,19 @@
 var quizApp = angular.module('quizApp', ['allServices']);
 
 quizApp.controller('quizController', ['$scope', 'useQuizService', function (scope, useQuizService) {
-    
-    scope.questions = useQuizService.getQuiz({id: 0}, function(){
-        scope.idQuestion = scope.questions.questions._id;
-        scope.question = scope.questions.questions.question;
-        scope.answers = scope.questions.questions.answers;
-    });
+/*    ['idQuestion', 'question', 'answers'].forEach(function(entry) {
+        scope.$watch(entry, function(newVal, oldVal){
+            console.log(JSON.stringify(newVal) + ' ' + JSON.stringify(oldVal));
+        });
+    });*/
+    function getQuestion(idQ){
+        scope.questions = useQuizService.getQuiz({id: idQ}, function(){
+            scope.idQuestion = scope.questions.questions._id;
+            scope.question = scope.questions.questions.question;
+            scope.answers = scope.questions.questions.answers;
+        });
+    }
+    getQuestion(0);
     scope.score = 0;
     scope.answerSelected = function(index, quizId) {
         var answerChosen = {answer: index};
@@ -17,6 +24,7 @@ quizApp.controller('quizController', ['$scope', 'useQuizService', function (scop
             } else {
                 alert('wronggg');
             }
+            getQuestion(quizId);
         });
     };
 

@@ -17,7 +17,13 @@ var engQuiz = {
     //Needs more logic and time
     getQuiz: function(req, res, next){
         var quizRequest = req.reqQuiz;
-        english.englishQuiz.findOne(recievedQuiz);
+        if(quizRequest.id == 0) {
+            english.englishQuiz.findOne(recievedQuiz);
+            console.log('why here');
+        } else {
+            english.englishQuiz.findOne({_id: {$gt: quizRequest.id}}, recievedQuiz);
+            console.log('here');
+        }
         function recievedQuiz(err, result) {
             if(err || !result) {
                 return next(err || new Error('It can\'t be right. The quiz is not found'));

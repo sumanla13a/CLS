@@ -4,8 +4,9 @@ var collect = {
 	getQuiz: function (req, res, next) {
 		req.reqQuiz = {
 			// moduleNumber : req.query.moduleNumber,
-			id: req.params.quiz_id || 0 //0 for the initial opening of quiz
+			id: req.params.id//0 for the initial opening of quiz
 		};
+		console.log(req.reqQuiz);
 		return next();
 	},
 	getAnswer: function(req, res, next) {
