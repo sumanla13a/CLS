@@ -58,3 +58,28 @@ a {
 .header > h1 {
 	margin: 0px;
 }
+
+.full-width{
+	width: 100%;
+}
+
+.border1Px {
+	border: 1px solid #dfdfdf; 
+}
+
+.looksInput {
+	border: 1px solid #dfdfdf;
+	border-radius: 5px;
+}
+.lineHeight35{
+	line-height: 35px;
+}
+.margin-left-answers-fix {
+	margin-left: 7%;
+}
+.pointer {
+	cursor: pointer;
+}
+.hover-lightUp:hover{
+	background-color: #FBECA2;
+}

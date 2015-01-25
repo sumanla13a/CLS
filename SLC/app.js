@@ -30,7 +30,10 @@ app.set('port', 4500);
 var router = express.Router();
 app.use('/', router); //initializing routes that all routes begin with '/'
 require('./routes')(router);//passing router to routes
-
+/*app.use(function(req, res) {
+  // Use res.sendfile, as it streams instead of reading the file into memory.
+  res.sendfile(__dirname + '/views/quiz');
+});*/
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

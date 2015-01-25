@@ -7,5 +7,5 @@ module.exports = function(router) {
 	router.get('/', user.index);
 	router.post('/student/new', collect.register, user.checkIfUserExists, user.register, mw.error);
 	router.post('/student/login', collect.login, user.login, mw.error);
-	router.get('/:app/:ball', mw.redirect);
+	// router.get('/:app/:ball', mw.redirect);
 }
