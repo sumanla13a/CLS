@@ -1,0 +1,17 @@
+.quiz-holder(ng-app="quizApp", ng-controller="quizController")
+    .col-xs-2
+        p &nbsp;
+    .col-xs-6
+        h1 
+            span Lets Take A Quiz
+            span.pull-right Score = {{score}}
+
+
+        div.border1Px
+            h3 
+                span.bold &nbsp; {{number}}. &nbsp
+                span {{question}}
+
+            div(ng-repeat="answer in answers")
+                p.looksInput.lineHeight35.margin-left-answers-fix.col-xs-10.hover-lightUp.pointer( data-idQuestion = "{{idQuestion}}", ng-click="answerSelected($index, idQuestion)") &nbsp; {{answer.answer}}
+                div.clearfix
