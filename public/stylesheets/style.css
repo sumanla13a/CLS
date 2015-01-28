@@ -1,0 +1,85 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif !important;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.header {
+	background-color: #141557;
+	height: 75px;
+	color: #FFFFFF;
+}
+
+.pull-right{
+	float: right;
+}
+
+.pull-left{
+	float: right;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.align-center-horizontal{
+	margin: 0 auto;
+}
+
+.font-size24 {
+	font-size: 24px;
+}
+.font-size18 {
+	font-size: 18px;
+}
+.font-size12 {
+	font-size: 12px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.align-middle {
+	margin: auto;
+}
+
+.vertically-align {
+	/*line-height: 2;*//*alligned text in center. todo:get a proper fix*/
+	/*these following line of code is used to vertically align in middle inside a div for any element*/
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.header > h1 {
+	margin: 0px;
+}
+
+.full-width{
+	width: 100%;
+}
+
+.border1Px {
+	border: 1px solid #dfdfdf; 
+}
+
+.looksInput {
+	border: 1px solid #dfdfdf;
+	border-radius: 5px;
+}
+.lineHeight35{
+	line-height: 35px;
+}
+.margin-left-answers-fix {
+	margin-left: 7%;
+}
+.pointer {
+	cursor: pointer;
+}
+.hover-lightUp:hover{
+	background-color: #FBECA2;
+}
