@@ -61,7 +61,6 @@ bower.json
 .metadata
 
 #custom files
-config.js
 deploy/keys
 var
 
