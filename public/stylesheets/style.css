@@ -38,7 +38,9 @@ a {
 .font-size12 {
 	font-size: 12px;
 }
-
+.font-size8 {
+	font-size: 8px;
+}
 .bold {
 	font-weight: bold;
 }
@@ -82,4 +84,29 @@ a {
 }
 .hover-lightUp:hover{
 	background-color: #FBECA2;
+}
+
+.select-holder {
+	height: 200px;
+	width: 200px;
+	box-shadow: 5px 5px 5px #dfdfdf;
+	border-radius: 20px;
+	cursor: pointer;
+	background-color: #E8E8EF;
+}
+.course-content {
+	width: 200px;
+}
+
+.displayBlock {
+	display: block;
+}
+
+.all-content {
+	width: 420px;
+}
+
+.course-content-holder{
+	width: 75%;
+	margin: 0 auto;
 }

@@ -66,7 +66,7 @@ if(require.main === module) {
         console.log('apple');
         console.log(result);
     });*/
-  newQuiz.question = 'I am ___ good boy.';
+  /*newQuiz.question = 'I am ___ good boy.';
     newQuiz.answers = [{answer: 'a'}, {answer: 'an'}, {answer: 'the'}, {answer: 'none'}];
     newQuiz.status = 1;
     newQuiz.save(function (err, res) {
@@ -79,7 +79,7 @@ if(require.main === module) {
             console.log(result);
         })
     })
-
+*/
 /*  newQuiz.question = 'I love it, __________';
     newQuiz.answers = [{answer: 'don\'t I ?'}, {answer: 'isn\'t I ?'}, {answer: 'am I ?'}, {answer: 'do I ?'}];
     newQuiz.status = 1;

@@ -1,2 +1,15 @@
-.goToQuiz
-    a(href="/#quiz") go to quiz
+p &nbsp;
+.all-content.align-middle(ng-controller="landingPageController")
+    .content-holder.box-shadow.align-middle.pull-left.select-holder(ng-click="landing.redirect('course')")
+        .course-content
+            p.font-size8 &nbsp;
+            img.displayBlock.align-center-horizontal(src="/images/book.png")
+            p.font-size8 &nbsp;
+            p.text-center Course
+
+    .goToQuiz.align-middle.select-holder.pull-right(ng-click="landing.redirect('quiz')")
+        .course-holder
+            p.font-size8 &nbsp;
+            img.displayBlock.align-center-horizontal(src="/images/quiz.png")
+            p.font-size8 &nbsp;
+            p.text-center(href="/#quiz") Take Quiz
