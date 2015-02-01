@@ -2,6 +2,12 @@
     .course-content-holder
         h1.bold {{course.title}}
         div(ng-repeat='content in course.contents')
-            h3.bold {{content.subTitle}}
+            a.likeText(name="content{{$index}}")
+                h3.bold {{content.subTitle}}
             div(ng-repeat='paragraph in content.paragraph')
-                p {{paragraph}} 
+                p {{paragraph}}
+
+    //- .course-link-holder
+    //-     div(ng-repeat='content in course.contents')
+    //-         a.likeText(href="\##"+"content{{$index}}", target='_self')
+    //-             p {{content.subTitle}}

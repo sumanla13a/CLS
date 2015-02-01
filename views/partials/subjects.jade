@@ -1,0 +1,8 @@
+p &nbsp;
+.course-subject-holder
+    .content-holder.box-shadow.align-middle.select-holder.margin1.pull-left(ng-repeat="subject in subjects", ng-click="courses.getContent(subject)")
+        .course-content.pull-left
+            p.font-size8 &nbsp;
+            img.displayBlock.align-center-horizontal(src="/images/book.png")
+            p.font-size8 &nbsp;
+            p.text-center {{subject}}

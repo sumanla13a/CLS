@@ -14,8 +14,12 @@ mainApp.config(['$routeProvider', '$locationProvider', function(routeProvider, l
             controller: 'quizController'
         }).
         when('/course', {
-            templateUrl: 'partials/course',
+            templateUrl: 'partials/subjects',
             controller: 'courseController'
+        }).
+        when('/subject/:sub', {
+            templateUrl: 'partials/course',
+            controller: 'subjectCourseController'
         }).
         otherwise({redirectTo: '/'});
 }]);

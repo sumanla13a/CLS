@@ -110,3 +110,20 @@ a {
 	width: 75%;
 	margin: 0 auto;
 }
+
+a.likeText {
+	text-decoration: none;
+	color: #333;
+}
+a.likeText:hover {
+	text-decoration: none;
+	color: #333;
+}
+
+.course-subject-holder {
+	width: 50%;
+	margin: 0 auto;
+}
+.margin1 {
+	margin: 1%;
+}

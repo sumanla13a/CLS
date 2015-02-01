@@ -16,7 +16,7 @@ services.factory('useQuizService', ['$resource', function(resource) {
 }])
 
 .factory('courseContentService', ['$resource', function(resource) {
-    return resource('/getcoursecontent', {}, {
+    return resource('/getcoursecontent/:sub', {}, {
         getCourseContent: {method: 'GET', isArray: false}
     })
 }]);
