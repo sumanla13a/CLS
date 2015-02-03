@@ -19,7 +19,7 @@ if(require.main === module) {
     var newQuiz = new a.quizes.english.englishQuiz;
     var answer = new a.quizes.english.englishAnswer;
     var student = new a.student.student;
-    var course = new a.courses.course;
+    var course = new a.courses.course.english;
 
     course.title = 'Articles';
     course.content = [

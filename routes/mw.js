@@ -25,7 +25,8 @@ module.exports = {
             }
         }
 
-        if (req.xhr || req.isapi) {
+        if (req.xhr || req.isapi || req.jsonDataOnError) {
+            console.log('here');
             res.json({
                 result: 'failure',
                 code: code || 1,

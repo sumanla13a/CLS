@@ -29,9 +29,8 @@ courseApp.controller('courseController', ['$rootScope','$scope', '$location', 'c
 
 courseApp.controller('subjectCourseController', ['$scope', '$location', 'courseContentService', '$anchorScroll', '$routeParams', function(scope, location, courseContentService, anchorScroll, routeParams) {
     var subject = routeParams.sub;
-    scope.course = courseContentService.getCourseContent({sub: subject},function(){
-        scope.course.contents = scope.course.content;
-        scope.course.title = scope.course.title;
+    scope.course = courseContentService.getCourseContent({sub: subject.toLowerCase()},function(){
+        scope.course.contents = scope.course.success ? scope.course.content : ['You came early. Class Starts at 9:00 am'];
+        scope.course.title = scope.course.success ? scope.course.title : 'You came early. Class Starts much later. Have a nice Break';
     });
-
 }]);
