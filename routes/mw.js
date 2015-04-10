@@ -5,6 +5,12 @@ module.exports = {
 		res.render('error');
 	},
 
+    response: function(req, res, next) {
+        var responseData = req.resData;
+        if(req.session.user) responseData.userSess = req.session.user;
+        return res.json(responseData);
+    },
+
 	error: function(err, req, res, next) {
         if (!err) err = new Error('an error has occurred');
         var code = err.status || 500;
@@ -26,7 +32,6 @@ module.exports = {
         }
 
         if (req.xhr || req.isapi || req.jsonDataOnError) {
-            console.log('here');
             res.json({
                 result: 'failure',
                 code: code || 1,

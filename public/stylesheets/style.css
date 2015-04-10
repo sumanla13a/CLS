@@ -107,8 +107,9 @@ a {
 }
 
 .course-content-holder{
-	width: 75%;
-	margin: 0 auto;
+	width: 60%;
+	position: relative;
+	left: 15%;
 }
 
 a.likeText {
@@ -126,4 +127,10 @@ a.likeText:hover {
 }
 .margin1 {
 	margin: 1%;
+}
+
+.course-link-holder {
+	width: auto;
+	position: fixed;
+	right: 10%;
 }

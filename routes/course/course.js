@@ -4,7 +4,7 @@ var courseSubject = require('../../models').courses.course;
 
 var course = {
     getCourse: function(req, res, next){
-        req.jsonDataOnError = 1;
+        // req.jsonDataOnError = 1;
         var subject = req.params.sub;
         courseSubject[subject].findOne(function(err, result) {
             if(err || !result) {

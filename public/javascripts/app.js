@@ -2,12 +2,14 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'allServices', 'quizApp', 'l
                              "ngResource"/*, 'ui.router'*/ ]);
 
 
-mainApp.config(['$routeProvider', '$locationProvider', function(routeProvider, locationProvider) {
+mainApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function(routeProvider, locationProvider, httpProvider) {
+
+        httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
         // locationProvider.html5Mode(true);
         routeProvider
         .when('/', {
             templateUrl: 'partials/landing',
-            // controller: 'landingPageController'
+            controller: 'landingPageController'
         })
         .when('/quiz', {
             templateUrl: 'partials/quiz',
@@ -22,4 +24,8 @@ mainApp.config(['$routeProvider', '$locationProvider', function(routeProvider, l
             controller: 'subjectCourseController'
         }).
         otherwise({redirectTo: '/'});
+}]);
+
+mainApp.run(['$anchorScroll', function($anchorScroll) {
+  $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
 }]);

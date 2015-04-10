@@ -62,18 +62,30 @@ var user = {
 
 		student.findOne({email: req.loginRequest.username}, loginCheck);
 		function loginCheck(err, documents) {
+			if(err) return next(err);
+			if(documents === null || Object.keys(documents).length === 0) {
+				req.resData = {
+					success: 0,
+					message: 'Username does not exist'
+				};
+				return next();
+			}
 			bcrypt.compare(loginRequest.password, documents.password, checkAuthentication);
 			function checkAuthentication(error, result) {
 				if(error || !result){
-					res.json({
-						status: 0
-					});
+					req.resData = {
+						status: 0,
+						message: 'Username/password does not match'
+					};
+					return next();
 				} else {
 					delete documents.password;
 					req.session.user = documents;
-					res.json({
-						status: 1
-					});
+				    req.resData = {
+						status: 1,
+						user : documents
+					};
+					return next();
 				}
 			}
 		}

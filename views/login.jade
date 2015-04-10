@@ -1,10 +1,14 @@
-form.form-inline(ng-submit="login.submit()")
-    .form-group
-        label.sr-only(for="usernameInput") Username
-        input.form-control(type="text", placeholder="username", required=true, ng-model="login.username")
-    span &nbsp;
-    .form-group
-        label.sr-only(for="password") Password
-        input.form-control(type="password", placeholder="password", required=true, ng-model="login.password")
-    span &nbsp;
-    button.btn.btn-primary(type="submit", value="Login") Login
+.userLinks(ng-controller="landingPageController")
+    form.form-inline( ng-submit="loginMethod.submit()", ng-hide="$root.loggedin == true")
+        .form-group
+            label.sr-only(for="usernameInput") Username
+            input.form-control(type="text", placeholder="username", required=true, ng-model="login.username")
+        span &nbsp;
+        .form-group
+            label.sr-only(for="password") Password
+            input.form-control(type="password", placeholder="password", required=true, ng-model="login.password")
+        span &nbsp;
+        button.btn.btn-primary(type="submit", value="Login") Login
+    p(ng-hide="$root.loggedin == false")
+        | logged in as 
+        a {{user.user.username}}

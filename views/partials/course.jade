@@ -1,13 +1,15 @@
 .course-content-details
-    .course-content-holder
+    .course-content-holder.pull-left
         h1.bold {{course.title}}
         div(ng-repeat='content in course.contents')
-            a.likeText(name="content{{$index}}")
+            a.likeText(id="content{{$index}}")
                 h3.bold {{content.subTitle}}
             div(ng-repeat='paragraph in content.paragraph')
                 p {{paragraph}}
 
-    //- .course-link-holder
-    //-     div(ng-repeat='content in course.contents')
-    //-         a.likeText(href="\##"+"content{{$index}}", target='_self')
-    //-             p {{content.subTitle}}
+    .course-link-holder.pull-right
+        p &nbsp;
+        p Contents
+        div(ng-repeat='content in course.contents')
+            a.likeText(href="", ng-click="scrollTo('content', $index)", target='_self')
+                p {{content.subTitle}}

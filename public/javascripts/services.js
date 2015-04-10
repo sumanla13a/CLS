@@ -15,6 +15,12 @@ services.factory('useQuizService', ['$resource', function(resource) {
     });
 }])
 
+.factory('loginSrvc', ['$resource', function(resource) {
+    return resource('/student/login', {}, {
+        login: {method: 'POST', isArray: false}
+    });
+}])
+
 .factory('courseContentService', ['$resource', function(resource) {
     return resource('/getcoursecontent/:sub', {}, {
         getCourseContent: {method: 'GET', isArray: false}
