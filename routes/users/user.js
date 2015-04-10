@@ -45,15 +45,17 @@ var user = {
 		newStudent.username = reqData.username;
 		newStudent.email = reqData.email;
 		newStudent.password = reqData.password;
-		encrypt(newStudent.password, encryptedData);
+/*		encrypt(newStudent.password, encryptedData);
 		function encryptedData(err, hash) {
 			newStudent.password = hash;
+		}*/
 			newStudent.save(savedNewStudent);
-		}
 		function savedNewStudent(err, result) {
-			res.json({
-				result:1
-			});
+			if(err) next(err)
+			else
+				res.json({
+					result:1
+				});
 		}
 	},
 

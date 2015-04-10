@@ -9,7 +9,6 @@ landingApp.controller('landingPageController', ['$scope', 'landingPageSrvc', '$l
         }
     };
     rootScope.loggedin = rootScope.loggedin || false;
-    alert(rootScope.loggedin)
     scope.loginMethod = {
         submit : function () {
             var promise = new Promise(function(resolve, reject) {

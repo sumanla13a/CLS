@@ -2,6 +2,7 @@
 
 var collect = {
 	register: function(req, res, next) {
+		req.jsonDataOnError = 1;
 		req.registerRequest = {
 			name: {
 				fname: req.body.fname,
